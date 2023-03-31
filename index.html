@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM Dorcky</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <div class="container-form sign-in">
+      <form
+        action=""
+        id="formulario-signin"
+        class="formulario"
+        onsubmit="iniciarSesion(event)">
+        <h2 class="create-account">Iniciar sesión</h2>
+
+        <!-- Iconos -->
+        <div class="iconos">
+          <div class="border-icon">
+            <i class="bx bxl-instagram"></i>
+          </div>
+          <div class="border-icon">
+            <i class="bx bxl-linkedin"></i>
+          </div>
+          <div class="border-icon">
+            <i class="bx bxl-facebook-circle"></i>
+          </div>
+        </div>
+
+        <!-- Correo -->
+        <div>
+          <input
+            id="correo-usuario"
+            type="email"
+            placeholder="E-mail"
+            required />
+        </div>
+
+        <!-- Contraseña -->
+        <div>
+          <input
+            id="contrasena-usuario"
+            type="password"
+            placeholder="Contraseña"
+            required />
+        </div>
+
+        <!-- Mensaje Error -->
+        <div id="error" class="error"></div>
+
+        <!-- Iniciar sesion -->
+        <div>
+          <input type="submit" value="Iniciar Sesión" />
+        </div>
+      </form>
+
+      <div class="welcome-back">
+        <div class="message">
+          <i class="bx bxs-bank"></i>
+          <h2>Bienvenido de nuevo</h2>
+          <p>Banco Dorcky te dará todo lo que creas merecer.</p>
+
+          <p>¡No sueñes tu vida, vive tu sueño!</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

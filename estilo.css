@@ -1,0 +1,527 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Crimson+Text:ital,wght@1,400;1,600&family=Fraunces&family=Great+Vibes&family=Junge&family=Roboto:wght@100&family=Tangerine:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(fotos/9.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+/***************************
+Clases generales
+***************************/
+.mb-4 {
+  margin-bottom: 0.7rem;
+}
+
+.mb-5 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 3rem;
+}
+
+.mx-4 {
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+#error {
+  margin-bottom: 10px;
+}
+
+.error {
+  color: crimson;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-group .form-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-group .form-control {
+  display: block;
+  width: 100%;
+  outline: 0;
+  padding: 10px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.form-group .form-control:focus {
+  box-shadow: 0 0 0 3px rgb(114, 114, 234);
+}
+
+.form-group .form-control:disabled {
+  background-color: #888;
+  color: #222;
+}
+
+/******************************
+INDEX.html
+*******************************/
+.container-form {
+  height: 95vh;
+  display: flex;
+  justify-content: space-around;
+  transition: all 0.5s ease-out;
+  color: #fff;
+}
+
+.welcome-back {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.message {
+  padding: 1rem;
+}
+
+.message {
+  font-size: 100px;
+}
+
+.message h2 {
+  font-size: 2rem;
+  color: rgb(255, 123, 0);
+  padding-bottom: 1rem;
+  font-family: "Aboreto";
+  color: rgb(255, 123, 0);
+}
+
+.message p {
+  font-size: 1.3rem;
+  font-family: "junge";
+  color: whitesmoke;
+  margin-bottom: 5px;
+}
+
+.formulario {
+  width: 400px;
+  padding: 1rem;
+  margin: 2rem;
+  background-color: rgba(51, 51, 51, 0.602);
+  text-align: center;
+}
+
+.create-account {
+  padding: 2.7rem 0;
+  font-size: 1.7rem;
+}
+
+.iconos {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.border-icon {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border: solid thin #fff;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  transition: all 0.3s ease-in;
+}
+
+.border-icon:hover {
+  background-color: #4a4aee;
+  cursor: pointer;
+}
+
+.formulario input {
+  width: 70%;
+  display: block;
+  margin: auto;
+  margin-bottom: 2rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: #fff thin solid;
+  text-align: left;
+  outline: none;
+  padding: 0.2rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.formulario input[type="submit"] {
+  padding: 0.7rem;
+  border-radius: 2rem;
+  background-color: #fff;
+  font-weight: 600;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #222;
+  text-align: center;
+}
+
+/*******************************
+ATM.html
+*******************************/
+#container-atm {
+  color: #fff;
+  width: 750px;
+  height: 95vh;
+  border-radius: 5px;
+}
+
+#titulo-atm {
+  background-color: rgba(78, 49, 157, 1);
+  padding: 15px;
+  text-align: center;
+  box-shadow: 6px -6px 0 6px #ffffff90;
+  border-radius: 5px;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 0.3) -3%,
+    rgba(253, 187, 45, 0.3) 100%
+  );
+}
+
+main,
+#teclado-atm {
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+main {
+  padding: 15px;
+  background-color: rgba(0, 49, 100, 0.3);
+  box-shadow: inset 5px 5px 5px 0 rgba(235, 189, 80, 0.9),
+    inset -5px -5px 5px 0 rgba(235, 189, 80, 0.9);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+#nav-right,
+#nav-right a {
+  display: flex;
+  align-items: center;
+}
+
+#nav-right {
+  gap: 15px;
+  margin-left: auto;
+}
+
+#nav-right img {
+  width: 40px;
+  transition: all 300ms ease-in-out;
+}
+
+#nav-right img:hover {
+  transform: scale(1.2);
+}
+
+#contenido {
+  padding: 15px 0;
+  height: 255px;
+  /* min-height: 250px; */
+}
+
+#bienvenido {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#menu-principal {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.menu-item {
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 500ms ease-in-out;
+}
+
+.menu-item:hover {
+  transform: scale(1.08);
+}
+
+.menu-item img {
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.menu-item a {
+  color: #fff;
+}
+
+#menu-depositar {
+  background-color: #00a9a6;
+}
+
+#menu-retirar {
+  background-color: #5c4892;
+}
+
+#menu-consultar {
+  background-color: #006eb6;
+}
+
+#teclado-atm {
+  /* background-color: rgba(87, 87, 87, 0.5); */
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 6px 6px 0 6px #ffffff80;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 0.3) -3%,
+    rgba(253, 187, 45, 0.3) 100%
+  );
+}
+
+#digitos {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  flex-wrap: wrap;
+}
+
+.digitos-atm {
+  width: 25%;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.digitos-atm .btn-numero {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 15px;
+  background-color: rgb(210, 200, 214);
+  border-radius: 5px;
+  color: #000;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+  transition: all 300ms ease-in-out;
+}
+
+.digitos-atm .btn-numero:hover {
+  transform: scale(1.03);
+  background-color: silver;
+}
+
+#botones-atm {
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.9);
+  border-left: 15px solid #000;
+  width: 40%;
+}
+
+#botones-atm .btn-acciones {
+  display: block;
+  width: calc(100% - 20px);
+  border: none;
+  padding: 15px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  color: #000;
+  transition: all 300ms ease-in-out;
+}
+
+#botones-atm .btn-acciones:hover {
+  transform: scale(1.08);
+}
+
+#btn-cancelar {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+#btn-cancelar:hover {
+  background-color: red;
+}
+
+#btn-borrar {
+  background-color: rgba(255, 255, 0, 0.5);
+}
+
+#btn-borrar:hover {
+  background-color: yellow;
+}
+
+#btn-aceptar {
+  background-color: rgba(7, 195, 41, 0.5);
+}
+
+#btn-aceptar:hover {
+  background-color: green;
+}
+
+.gif {
+  width: 50%;
+  padding-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gif img {
+  height: 200px;
+  /* width: 100%; */
+  /* object-fit: cover; */
+  border-radius: 10px;
+}
+
+/* Pantalla depositar */
+#pantalla-depositar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#pantalla-depositar .left {
+  flex-grow: 1;
+  padding-right: 30px;
+}
+
+#pantalla-depositar .right {
+  width: 100%;
+  object-fit: cover;
+}
+
+#validacion {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#retirar-efectivo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#numeros {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  width: 50%;
+}
+
+#iconos-retiro {
+  width: 30%;
+}
+
+.confirmacion-retiro {
+  text-align: center;
+  font-size: 17px;
+}
+
+.aceptar {
+  color: green;
+  font-weight: bold;
+}
+
+#cancelar {
+  color: red;
+  font-weight: bold;
+}
+
+.retiro-atm {
+  width: 30%;
+  text-align: center;
+  padding: 2px;
+}
+
+.retiro-atm .btn-cantidad {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #000;
+  transition: all 300ms ease-in-out;
+}
+
+.retiro-atm:last-child:last-child {
+  width: 60%;
+}
+
+.retiro-atm .btn-cantidad:hover {
+  transform: scale(1.03);
+  background-color: silver;
+  color: crimson;
+}
+
+.detalle-cantidad {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detalle-cantidad img {
+  width: 280px;
+  border-radius: 8px;
+  margin-right: 50px;
+}
+
+#form-cantidad {
+  flex-grow: 1;
+  padding-right: 80px;
+}
+
+#pantalla-consultar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#consultar-form {
+  flex-grow: 1;
+  padding-right: 100px;
+}
+
+#consultar-saldo img {
+  width: 280px;
+  border-radius: 8px;
+  margin-right: 40px;
+}

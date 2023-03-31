@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATM Dorcky</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body onload="mostrarPantallaInicio()">
+    <div id="container-atm">
+      <div id="titulo-atm" class="mb-4">
+        <h1>ATM Dorcky</h1>
+      </div>
+
+      <main class="mb-4">
+        <nav>
+          <h1>Banco Dorcky</h1>
+          <div id="nav-right">
+            <a href="#" onclick="mostrarPantallaInicio()">
+              <img src="fotos/casa.png" alt="" />
+            </a>
+            <a href="index.html" onclick="cerrarSession()">
+              <img src="fotos/cerrarsesion.png" alt="" />
+            </a>
+          </div>
+        </nav>
+
+        <input id="input-escondido" type="hidden" />
+        <input id="input-cantidad-escondido" type="hidden" />
+
+        <div id="contenido">
+          <!-- Pantalla inicio -->
+        </div>
+      </main>
+
+      <div id="teclado-atm">
+        <div id="digitos">
+          <div class="digitos-atm">
+            <button class="btn-numero">1</button>
+          </div>
+          <div class="digitos-atm mx-4">
+            <button class="btn-numero">2</button>
+          </div>
+          <div class="digitos-atm">
+            <button class="btn-numero">3</button>
+          </div>
+          <div class="digitos-atm">
+            <button class="btn-numero">4</button>
+          </div>
+          <div class="digitos-atm mx-4">
+            <button class="btn-numero">5</button>
+          </div>
+          <div class="digitos-atm">
+            <button class="btn-numero">6</button>
+          </div>
+          <div class="digitos-atm">
+            <button class="btn-numero">7</button>
+          </div>
+          <div class="digitos-atm mx-4">
+            <button class="btn-numero">8</button>
+          </div>
+          <div class="digitos-atm">
+            <button class="btn-numero">9</button>
+          </div>
+          <div class="digitos-atm mx-4">
+            <button class="btn-numero">0</button>
+          </div>
+        </div>
+        <div id="botones-atm">
+          <button id="btn-cancelar" class="btn-acciones">Cancelar</button>
+          <button
+            id="btn-borrar"
+            class="btn-acciones"
+            onclick="borrarNumeroEnPantalla()">
+            Borrar
+          </button>
+          <button id="btn-aceptar" class="btn-acciones">Aceptar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
