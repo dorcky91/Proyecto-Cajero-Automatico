@@ -659,14 +659,14 @@ function mostrarPantallaConsultar() {
              <h3 class="mb-5 fs-5">Consultar saldo</h3>
 
              <div>
-                 <div class="form-group bg-white">
+                 <div class="form-group">
                      <label class="form-label" for="saldo-total">Saldo total :</label>
-                     <input class="form-control" id="saldo-total" type="text" disabled />
+                     <input class="form-control bg-light" id="saldo-total" type="text" disabled />
                  </div>
          
-                 <div class="form-group bg-white">
+                 <div class="form-group">
                      <label class="form-label" for="saldo-disponible">Saldo disponible :</label>
-                     <input class="form-control" id="saldo-disponible" type="text" disabled />
+                     <input class="form-control bg-light" id="saldo-disponible" type="text" disabled />
                  </div>
              </div>
 
