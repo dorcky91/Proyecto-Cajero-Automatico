@@ -520,7 +520,7 @@ function mostrarOtraCantidadRetirar(cantidad) {
     <div class="confirmacion-retiro text-start row">
       <div class="col-12">
          <div id="pantalla-retirar">
-             <h3 class="mb-5 fs-5">Cantidad a retirar: <span id="cantidad-deseado-retirar"></span> </h3>
+             <h3 class="mb-5 fs-5">Cantidad a retirar:<span id="cantidad-deseado-retirar"></span> </h3>
          </div">
          
           <div class="confirmacion-retiro">
@@ -659,12 +659,12 @@ function mostrarPantallaConsultar() {
              <h3 class="mb-5 fs-5">Consultar saldo</h3>
 
              <div>
-                 <div class="form-group">
+                 <div class="form-group bg-white">
                      <label class="form-label" for="saldo-total">Saldo total :</label>
                      <input class="form-control" id="saldo-total" type="text" disabled />
                  </div>
          
-                 <div class="form-group">
+                 <div class="form-group bg-white">
                      <label class="form-label" for="saldo-disponible">Saldo disponible :</label>
                      <input class="form-control" id="saldo-disponible" type="text" disabled />
                  </div>
