@@ -520,7 +520,7 @@ function mostrarOtraCantidadRetirar(cantidad) {
     <div class="confirmacion-retiro text-start row">
       <div class="col-12">
          <div id="pantalla-retirar">
-             <h3 class="mb-5 fs-5">Cantidad a retirar:<span id="cantidad-deseado-retirar"></span> </h3>
+             <h3 class="mb-5 fs-5">Cantidad a retirar: <span id="cantidad-deseado-retirar"></span> </h3>
          </div">
          
           <div class="confirmacion-retiro">
