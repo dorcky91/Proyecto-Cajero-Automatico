@@ -19,27 +19,27 @@ body {
     url(fotos/9.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
 }
 
 /***************************
 Clases generales
 ***************************/
 .mb-4 {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.7rem !important;
 }
 
 .mb-5 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem !important;
 }
 
 .mb-6 {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .mx-4 {
-  margin-left: 0.7rem;
-  margin-right: 0.7rem;
+  margin-left: 0.7rem !important;
+  margin-right: 0.7rem !important;
 }
 
 button {
@@ -93,8 +93,24 @@ button {
 /******************************
 INDEX.html
 *******************************/
+#help {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+#help .btn-primary {
+  background-color: #d2691e !important;
+  border-color: #d2691e !important;
+  color: white;
+  transition: 0.3s ease-in-out;
+}
+
+#help .btn-primary:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
 .container-form {
-  height: 95vh;
   display: flex;
   justify-content: space-around;
   transition: all 0.5s ease-out;
@@ -102,7 +118,6 @@ INDEX.html
 }
 
 .welcome-back {
-  display: flex;
   align-items: center;
   text-align: center;
 }
@@ -131,7 +146,6 @@ INDEX.html
 }
 
 .formulario {
-  width: 400px;
   padding: 1rem;
   margin: 2rem;
   background-color: rgba(51, 51, 51, 0.602);
@@ -201,9 +215,9 @@ ATM.html
 *******************************/
 #container-atm {
   color: #fff;
-  width: 750px;
-  height: 95vh;
   border-radius: 5px;
+  width: 680px;
+  margin: 0 auto;
 }
 
 #titulo-atm {
@@ -217,6 +231,10 @@ ATM.html
     rgba(34, 193, 195, 0.3) -3%,
     rgba(253, 187, 45, 0.3) 100%
   );
+}
+
+#titulo-atm h1 {
+  font-size: 30px !important;
 }
 
 main,
@@ -240,6 +258,10 @@ nav {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+nav h1 {
+  font-size: 25px;
+}
+
 #nav-right,
 #nav-right a {
   display: flex;
@@ -256,13 +278,13 @@ nav {
   transition: all 300ms ease-in-out;
 }
 
-#nav-right img:hover {
+#nav-right a:hover img {
   transform: scale(1.2);
 }
 
 #contenido {
   padding: 15px 0;
-  height: 255px;
+  height: auto;
   /* min-height: 250px; */
 }
 
@@ -270,16 +292,22 @@ nav {
   margin-bottom: 30px;
   text-align: center;
 }
+#bienvenido h3 {
+  font-size: 20px;
+}
 
-#menu-principal {
+#bienvenido h4 {
+  font-size: 20px;
+}
+
+/* #menu-principal {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-}
+} */
 
 .menu-item {
   text-align: center;
-  padding: 20px;
   border-radius: 5px;
   font-size: 14px;
   transition: all 500ms ease-in-out;
@@ -312,8 +340,8 @@ nav {
 
 #teclado-atm {
   /* background-color: rgba(87, 87, 87, 0.5); */
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   padding: 15px;
   box-shadow: 6px 6px 0 6px #ffffff80;
   background: linear-gradient(
@@ -326,7 +354,6 @@ nav {
 #digitos {
   display: flex;
   justify-content: center;
-  width: 80%;
   flex-wrap: wrap;
 }
 
@@ -354,17 +381,17 @@ nav {
 }
 
 #botones-atm {
-  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.9);
-  border-left: 15px solid #000;
-  width: 40%;
+  /* box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.9); */
+  border-left: 5px solid #000;
+  /* padding: 5px; */
 }
 
 #botones-atm .btn-acciones {
   display: block;
-  width: calc(100% - 20px);
-  border: none;
-  padding: 15px 30px;
-  margin: 10px;
+  width: 100%;
+  /* width: calc(100%-0); */
+  padding: 10px;
+  margin: 6px;
   border-radius: 5px;
   color: #000;
   transition: all 300ms ease-in-out;
@@ -398,23 +425,23 @@ nav {
   background-color: green;
 }
 
-.gif {
+/* .gif {
   width: 50%;
   padding-right: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .gif img {
-  height: 200px;
-  /* width: 100%; */
-  /* object-fit: cover; */
+  height: 210px;
+  width: 100%;
+  object-fit: cover;
   border-radius: 10px;
 }
 
 /* Pantalla depositar */
-#pantalla-depositar {
+/* #pantalla-depositar {
   display: flex;
   justify-content: space-between;
 }
@@ -422,7 +449,7 @@ nav {
 #pantalla-depositar .left {
   flex-grow: 1;
   padding-right: 30px;
-}
+} */
 
 #pantalla-depositar .right {
   width: 100%;
@@ -437,21 +464,16 @@ nav {
   text-align: center;
 }
 
-#retirar-efectivo {
+/* #retirar-efectivo {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 #numeros {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  width: 50%;
-}
-
-#iconos-retiro {
-  width: 30%;
 }
 
 .confirmacion-retiro {
@@ -470,7 +492,7 @@ nav {
 }
 
 .retiro-atm {
-  width: 30%;
+  width: 33.33%;
   text-align: center;
   padding: 2px;
 }
@@ -485,7 +507,7 @@ nav {
 }
 
 .retiro-atm:last-child:last-child {
-  width: 60%;
+  width: 66.66%;
 }
 
 .retiro-atm .btn-cantidad:hover {
@@ -500,14 +522,10 @@ nav {
 }
 
 .detalle-cantidad img {
-  width: 280px;
+  height: 210px;
+  width: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  margin-right: 50px;
-}
-
-#form-cantidad {
-  flex-grow: 1;
-  padding-right: 80px;
 }
 
 #pantalla-consultar {
@@ -515,13 +533,8 @@ nav {
   justify-content: space-between;
 }
 
-#consultar-form {
-  flex-grow: 1;
-  padding-right: 100px;
-}
-
 #consultar-saldo img {
-  width: 280px;
+  width: 100%;
+  height: 210px;
   border-radius: 8px;
-  margin-right: 40px;
 }

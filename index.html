@@ -5,70 +5,148 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ATM Dorcky</title>
+    <link rel="shortcut icon" href="fotos/10.jpg" type="image/x-icon" />
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="estilo.css" />
   </head>
   <body>
-    <div class="container-form sign-in">
-      <form
-        action=""
-        id="formulario-signin"
-        class="formulario"
-        onsubmit="iniciarSesion(event)">
-        <h2 class="create-account">Iniciar sesión</h2>
+    <div class="container-form sign-in py-4">
+      <div class="container-xl">
+        <div class="row gy-5">
+          <div class="col-md-12 col-lg-6 p-3">
+            <div class="welcome-back">
+              <div class="message">
+                <i class="bx bxs-bank"></i>
+                <h2>Bienvenido de nuevo</h2>
+                <p>Banco Lordan te dará todo lo que creas merecer.</p>
 
-        <!-- Iconos -->
-        <div class="iconos">
-          <div class="border-icon">
-            <i class="bx bxl-instagram"></i>
+                <p>¡No sueñes tu vida, vive tu sueño!</p>
+              </div>
+            </div>
           </div>
-          <div class="border-icon">
-            <i class="bx bxl-linkedin"></i>
+          <div class="col-md-12 col-lg-6">
+            <form
+              action=""
+              id="formulario-signin"
+              class="formulario"
+              onsubmit="iniciarSesion(event)">
+              <h2 class="create-account">Iniciar sesión</h2>
+
+              <!-- Iconos -->
+              <div class="iconos">
+                <div class="border-icon">
+                  <i class="bx bxl-instagram"></i>
+                </div>
+                <div class="border-icon">
+                  <i class="bx bxl-linkedin"></i>
+                </div>
+                <div class="border-icon">
+                  <i class="bx bxl-facebook-circle"></i>
+                </div>
+              </div>
+
+              <!-- Correo -->
+              <div>
+                <input
+                  id="correo-usuario"
+                  type="email"
+                  placeholder="Correo Electrónico"
+                  required />
+              </div>
+
+              <!-- Contraseña -->
+              <div>
+                <input
+                  id="contrasena-usuario"
+                  type="password"
+                  placeholder="Contraseña"
+                  required />
+              </div>
+
+              <!-- Mensaje Error -->
+              <div id="error" class="error"></div>
+
+              <!-- Iniciar sesion -->
+              <div>
+                <input type="submit" value="Iniciar Sesión" />
+              </div>
+            </form>
           </div>
-          <div class="border-icon">
-            <i class="bx bxl-facebook-circle"></i>
-          </div>
-        </div>
-
-        <!-- Correo -->
-        <div>
-          <input
-            id="correo-usuario"
-            type="email"
-            placeholder="E-mail"
-            required />
-        </div>
-
-        <!-- Contraseña -->
-        <div>
-          <input
-            id="contrasena-usuario"
-            type="password"
-            placeholder="Contraseña"
-            required />
-        </div>
-
-        <!-- Mensaje Error -->
-        <div id="error" class="error"></div>
-
-        <!-- Iniciar sesion -->
-        <div>
-          <input type="submit" value="Iniciar Sesión" />
-        </div>
-      </form>
-
-      <div class="welcome-back">
-        <div class="message">
-          <i class="bx bxs-bank"></i>
-          <h2>Bienvenido de nuevo</h2>
-          <p>Banco Dorcky te dará todo lo que creas merecer.</p>
-
-          <p>¡No sueñes tu vida, vive tu sueño!</p>
         </div>
       </div>
     </div>
+
+    <div id="help">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-target="#modalManual"
+        data-bs-toggle="modal">
+        <i class="bx bx-help-circle fs-3"></i>
+      </button>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalManual"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">
+              Ayuda
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Para iniciar sesión, Se necesita un correo electrónico con una
+              contraseña. Para ello, se puede hacer uso de uno de estos 3
+              usuarios:
+            </p>
+            <ol>
+              <li class="mb-3">
+                <p class="fw-bold mb-0">lordan@gmail.com</p>
+                <p class="mb-0">Lordan1234</p>
+              </li>
+              <li class="mb-3">
+                <p class="fw-bold mb-0">gabyfl@gmail.com</p>
+                <p class="mb-0">GabyFL1234</p>
+              </li>
+              <li>
+                <p class="fw-bold mb-0">maui@gmail.com</p>
+                <p class="mb-0">Maui1234</p>
+              </li>
+            </ol>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="script.js"></script>
   </body>

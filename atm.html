@@ -4,10 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="fotos/10.jpg" type="image/x-icon" />
+
     <title>ATM Dorcky</title>
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" />
+
     <link rel="stylesheet" href="estilo.css" />
   </head>
   <body onload="mostrarPantallaInicio()">
@@ -20,7 +27,7 @@
         <nav>
           <h1>Banco Dorcky</h1>
           <div id="nav-right">
-            <a href="#" onclick="mostrarPantallaInicio()">
+            <a role="button" onclick="mostrarPantallaInicio()">
               <img src="fotos/casa.png" alt="" />
             </a>
             <a href="index.html" onclick="cerrarSession()">
@@ -32,56 +39,139 @@
         <input id="input-escondido" type="hidden" />
         <input id="input-cantidad-escondido" type="hidden" />
 
-        <div id="contenido">
-          <!-- Pantalla inicio -->
+        <div class="container-xl">
+          <div class="row gy-5">
+            <div class="col-md-12">
+              <div id="contenido">
+                <!-- Pantalla inicio -->
+              </div>
+            </div>
+          </div>
         </div>
       </main>
 
-      <div id="teclado-atm">
-        <div id="digitos">
-          <div class="digitos-atm">
-            <button class="btn-numero">1</button>
+      <div id="teclado-atm" class="d-none d-md-block">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-8">
+              <div id="digitos">
+                <div class="digitos-atm">
+                  <button class="btn-numero">1</button>
+                </div>
+                <div class="digitos-atm mx-4">
+                  <button class="btn-numero">2</button>
+                </div>
+                <div class="digitos-atm">
+                  <button class="btn-numero">3</button>
+                </div>
+                <div class="digitos-atm">
+                  <button class="btn-numero">4</button>
+                </div>
+                <div class="digitos-atm mx-4">
+                  <button class="btn-numero">5</button>
+                </div>
+                <div class="digitos-atm">
+                  <button class="btn-numero">6</button>
+                </div>
+                <div class="digitos-atm">
+                  <button class="btn-numero">7</button>
+                </div>
+                <div class="digitos-atm mx-4">
+                  <button class="btn-numero">8</button>
+                </div>
+                <div class="digitos-atm">
+                  <button class="btn-numero">9</button>
+                </div>
+                <div class="digitos-atm mx-4">
+                  <button class="btn-numero">0</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div id="botones-atm">
+                <button id="btn-cancelar" class="btn-acciones">Cancelar</button>
+                <button
+                  id="btn-borrar"
+                  class="btn-acciones"
+                  onclick="borrarNumeroEnPantalla()">
+                  Borrar
+                </button>
+                <button id="btn-aceptar" class="btn-acciones">Aceptar</button>
+              </div>
+            </div>
           </div>
-          <div class="digitos-atm mx-4">
-            <button class="btn-numero">2</button>
-          </div>
-          <div class="digitos-atm">
-            <button class="btn-numero">3</button>
-          </div>
-          <div class="digitos-atm">
-            <button class="btn-numero">4</button>
-          </div>
-          <div class="digitos-atm mx-4">
-            <button class="btn-numero">5</button>
-          </div>
-          <div class="digitos-atm">
-            <button class="btn-numero">6</button>
-          </div>
-          <div class="digitos-atm">
-            <button class="btn-numero">7</button>
-          </div>
-          <div class="digitos-atm mx-4">
-            <button class="btn-numero">8</button>
-          </div>
-          <div class="digitos-atm">
-            <button class="btn-numero">9</button>
-          </div>
-          <div class="digitos-atm mx-4">
-            <button class="btn-numero">0</button>
-          </div>
-        </div>
-        <div id="botones-atm">
-          <button id="btn-cancelar" class="btn-acciones">Cancelar</button>
-          <button
-            id="btn-borrar"
-            class="btn-acciones"
-            onclick="borrarNumeroEnPantalla()">
-            Borrar
-          </button>
-          <button id="btn-aceptar" class="btn-acciones">Aceptar</button>
         </div>
       </div>
     </div>
+
+    <div id="help">
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-target="#modalManual"
+        data-bs-toggle="modal">
+        <i class="bx bx-help-circle fs-3"></i>
+      </button>
+    </div>
+
+    <div
+      class="modal fade"
+      id="modalManual"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5 fw-bold" id="staticBackdropLabel">
+              Ayuda
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>
+              Al ingresar, se podrá seleccionar la cuenta de uno de los 3
+              usuarios con la que desea interactuar.
+            </p>
+            <ul class="mb-5">
+              <li class="mb-3">
+                <p class="fw-bold mb-0">Cuenta: 1991201414</p>
+                <p class="mb-0">Usuario: Lordan Bendt Bodgar Hernts</p>
+              </li>
+              <li class="mb-3">
+                <p class="fw-bold mb-0">Cuenta: 1998231414</p>
+                <p class="mb-0">Usuario: Gaby FL Appolon Méndez</p>
+              </li>
+              <li>
+                <p class="fw-bold mb-0">Cuenta: 1324009857</p>
+                <p class="mb-0">Usuario: Maui Magdalena Giménez Delva</p>
+              </li>
+            </ul>
+            <h6 class="text-uppercase fw-bold">Nota:</h6>
+            <p>
+              Como regla de negocio, una cuenta no debe de tener más de $990 y
+              menos de $10.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal">
+              Cerrar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="script.js"></script>
   </body>

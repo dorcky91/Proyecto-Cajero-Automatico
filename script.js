@@ -121,27 +121,41 @@ function mostrarPantallaInicio() {
             <h4>¿Qué desea realizar?</h4>
         </div>
 
+      <div class="container-xl">
         <div id="menu-principal">
-            <div id="menu-depositar" class="menu-item">
-                <a href="#" onclick="mostrarPantallaDepositar()">
+          <div class="row gy-3">
+            <div class="col-6 col-md-4">
+              <div id="menu-depositar" class="menu-item h-100 py-lg-3 p-2">
+                <a class="text-decoration-none" role="button" onclick="mostrarPantallaDepositar()">
                 <img height="50" src="fotos/depositar.png" alt="" />
-                <p>Depositar a cuenta</p>
+                <p class="mb-0">Depositar a cuenta</p>
                 </a>
-            </div>
-            <div id="menu-retirar" class="menu-item">
-                <a href="#" onclick="mostrarPantallaRetirar()">
-                <img height="50" src="fotos/retiro.png" alt="" />
-                <p>Retirar efectivos</p>
-                </a>
+              </div>
             </div>
 
-            <div id="menu-consultar" class="menu-item">
-                <a href="#" onclick="mostrarPantallaConsultar()">
-                <img height="50" src="fotos/consultar.png" alt="" />
-                <p>Consultar saldo</p>
+            <div class="col-6 col-md-4">
+              <div id="menu-retirar" class="menu-item h-100 py-lg-3 p-2">
+                <a class="text-decoration-none" role="button" onclick="mostrarPantallaRetirar()">
+                <img height="50" src="fotos/retiro.png" alt="" />
+                <p class="mb-0">Retirar efectivo</p>
                 </a>
+              </div>
             </div>
+
+            <div class="col-6 col-md-4 mx-auto">
+              <div id="menu-consultar" class="menu-item h-100 py-lg-3 p-2">
+                <a class="text-decoration-none" role="button" onclick="mostrarPantallaConsultar()">
+                <img height="50" src="fotos/consultar.png" alt="" />
+                <p class="mb-0">Consultar saldo</p>
+                </a>
+              </div>
+            </div>
+
+
+
+          </div>
         </div>
+      </div>
     </div>
   `;
 
@@ -167,14 +181,20 @@ function mostrarPantallaDepositar() {
 
   let contenido = document.getElementById("contenido");
   contenido.innerHTML = `
-  <div id="pantalla-depositar">
-    <div class="left">
-        <h3 class="mb-5">Depositar a cuenta</h3>
+  <div id="pantalla-depositar" class="row gy-5">
+    <div class="left col-12 col-md-6">
+        <h3 class="mb-5 fs-5">Depositar a cuenta</h3>
 
         <div id="depositar-formulario">
         </div>
     </div>
-    <div class="gif">
+    <div class="col-12 d-md-none">
+      <div id="botones-atm" class="d-flex border-0 ">
+        <button id="btn-cancelar" class="btn-acciones">Cancelar</button>
+        <button id="btn-aceptar" class="btn-acciones">Aceptar</button>
+      </div>
+    </div>
+    <div class="gif col-12 col-md-6">
     </div>
   </div>
   `;
@@ -414,10 +434,10 @@ function mostrarPantallaRetirar() {
 
   let contenido = document.getElementById("contenido");
   contenido.innerHTML = `
-     <div id="retirar-efectivo">
-         <div>
-             <div id="pantalla-retirar">
-                 <h3 class="mb-5">Retirar efectivos</h3>
+      <div id="retirar-efectivo" class="row gy-3">
+        <div class="col-md-7">
+          <div id="pantalla-retirar">
+                 <h3 class="mb-5 fs-5">Retirar efectivo</h3>
              </div>
              <div class="cuenta-retiro">
                  <div id="retirar">
@@ -464,17 +484,17 @@ function mostrarPantallaRetirar() {
                  </div>
 
             </div>
-        </div>
-         <div id="iconos-retiro">
+            </div>
+            <div id="iconos-retiro" class="col-md-5">
               <div>
                 <img src="https://www.gifsanimados.org/data/media/56/computadora-y-ordenador-imagen-animada-0204.gif" border="0" alt="computadora-y-ordenador-imagen-animada-0204"/>
               </div>
 
               <div>
-                  <img width="160px" src="fotos/atmRetiro.jpg" />
+                  <img class="w-100 object-fit-cover h-100" src="fotos/atmRetiro.jpg" />
               </div>
-          </div>
-     </div>
+        </div>
+      </div>
   `;
 
   let retirarBtn = document.querySelectorAll(".retiroBtn");
@@ -489,6 +509,7 @@ function mostrarPantallaRetirar() {
 
   let btnAceptar = document.querySelector("#btn-aceptar");
   btnAceptar.onclick = function () {
+    console.log("pantalla retirar");
     return false;
   };
 }
@@ -496,70 +517,85 @@ function mostrarPantallaRetirar() {
 function mostrarOtraCantidadRetirar(cantidad) {
   let contenido = document.querySelector("#contenido");
   contenido.innerHTML = `
-     <div class="confirmacion-retiro>
+    <div class="confirmacion-retiro text-start row">
+      <div class="col-12">
          <div id="pantalla-retirar">
-             <h3 class="mb-5">Retirar efectivos</h3>
+             <h3 class="mb-5 fs-5">Cantidad a retirar: <span id="cantidad-deseado-retirar"></span> </h3>
          </div">
          
-         <div class="confirmacion-retiro">
-             <h4 class="mb-6 ">¿Es correcta la información ingresada?</h4>
-             <h4 class="mb-4">Presione <span class="aceptar">Aceptar</span> para confirmar.</h4>
-             <h4> Sino, presione <span id="cancelar">Cancelar</span> para regresar.</h4>
-         </div>
-     </div>
+          <div class="confirmacion-retiro">
+             <h4 class="mb-6 fs-5">¿Es correcta la información ingresada?</h4>
+             <h4 class="mb-4 fs-5">Presione <span class="aceptar">Aceptar</span> para confirmar.</h4>
+             <h4 class="fs-5 mb-4"> Sino, presione <span id="cancelar">Cancelar</span> para regresar.</h4>
+          </div>
+      </div>
+
+      <div class="col-12 d-md-none mt-5">
+        <div id="botones-atm" class="d-flex border-0 ">
+           <button id="btn-cancelar" class="btn-acciones">Cancelar</button>
+           <button id="btn-aceptar" class="btn-acciones">Aceptar</button>
+        </div>
+      </div>
+    </div>
+    </div>
     `;
+
+  let nuevoEscondido = document.querySelector("#cantidad-deseado-retirar");
+  nuevoEscondido.innerText = cantidad;
 
   let btnCancelar = document.querySelector("#btn-cancelar");
   btnCancelar.onclick = function () {
     mostrarPantallaRetirar();
   };
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    let inputCantidadEscondido = document.querySelector(
-      "#input-cantidad-escondido"
-    );
-    console.log(cantidad);
-    inputCantidadEscondido.value = cantidad.replace("$", "");
-    let numeroCuentaEscondido = document.querySelector("#input-escondido");
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((element) => {
+    element.onclick = function () {
+      let inputCantidadEscondido = document.querySelector(
+        "#input-cantidad-escondido"
+      );
+      inputCantidadEscondido.value = cantidad.replace("$", "");
 
-    var baseDeDatosLocal = localStorage.getItem("cuentasRegistradas");
-    let arreglo = JSON.parse(baseDeDatosLocal);
+      let numeroCuentaEscondido = document.querySelector("#input-escondido");
 
-    let dato = arreglo.find(
-      (x) => x.correo === sessionStorage.getItem("usuarioConectado")
-    );
+      var baseDeDatosLocal = localStorage.getItem("cuentasRegistradas");
+      let arreglo = JSON.parse(baseDeDatosLocal);
 
-    if (dato) {
-      numeroCuentaEscondido.value = dato.noCuenta;
-    }
+      let dato = arreglo.find(
+        (x) => x.correo === sessionStorage.getItem("usuarioConectado")
+      );
 
-    mostrarPantallaValidacion();
-    let mensaje;
-    let carita;
+      if (dato) {
+        numeroCuentaEscondido.value = dato.noCuenta;
+      }
 
-    let depositoExitoso = actualizarSaldo("retiro");
-    if (depositoExitoso === true) {
-      mensaje =
-        "Su retiro ha sido realizado satisfactoriamente.<br/><br/> Regrese pronto.";
-      carita = "caritaFeliz.png";
-    } else {
-      mensaje =
-        "Su retiro ha sido rechazado: saldo insuficiente o cantidad incorrecta.<br/><br/> Intenta nuevamente.";
-      carita = "caritaTriste.png";
-    }
+      mostrarPantallaValidacion();
+      let mensaje;
+      let carita;
 
-    loading(mensaje, carita);
-  };
+      let depositoExitoso = actualizarSaldo("retiro");
+      if (depositoExitoso === true) {
+        mensaje =
+          "Su retiro ha sido realizado satisfactoriamente.<br/><br/> Regrese pronto.";
+        carita = "caritaFeliz.png";
+      } else {
+        mensaje =
+          "Su retiro ha sido rechazado: saldo insuficiente o cantidad incorrecta.<br/><br/> Intenta nuevamente.";
+        carita = "caritaTriste.png";
+      }
+
+      loading(mensaje, carita);
+    };
+  });
 }
 
 function mostrarOtraCantidadDetalle() {
   let contenido = document.querySelector("#contenido");
   contenido.innerHTML = `
-    <div class="form-group detalle-cantidad">
-         <form id="form-cantidad" autocomplete="off">
+        <div class="form-group detalle-cantidad row gy-3">
+          <form id="form-cantidad" class="col-12 col-md-6" autocomplete="off">
              <div>
-                 <h3 class="mb-5">Retirar efectivos</h3>
+                 <h3 class="mb-5 fs-5">Retirar efectivo</h3>
              </div>
 
             <div class="form-group">
@@ -567,12 +603,19 @@ function mostrarOtraCantidadDetalle() {
                  <input class="form-control activo" id="otra-cantidad" name="otra-cantidad" type="text" maxlength="3" onfocus="inputDeposito(this)" required />
             </div>
             <div id="error" class="error"></div>
-        </form>
+          </form>
 
-        <div>
+          <div class="col-12 col-md-6 order-1">
              <img src="fotos/retiroOtraCantidad.jpg" />
          </div>
-    </div>
+
+          <div class="col-12 d-md-none mb-3 order-0">
+            <div id="botones-atm" class="d-flex border-0 ">
+               <button id="btn-cancelar" class="btn-acciones">Cancelar</button>
+               <button id="btn-aceptar" class="btn-acciones">Aceptar</button>
+            </div>
+          </div>
+        </div>
     `;
 
   let btnCancelar = document.querySelector("#btn-cancelar");
@@ -611,9 +654,9 @@ function mostrarPantallaConsultar() {
   setTimeout(function () {
     let contenido = document.getElementById("contenido");
     contenido.innerHTML = `
-     <div id="pantalla-consultar" class="mb-5">
-        <div id="consultar-form">
-             <h3 class="mb-5">Consultar saldo</h3>
+      <div id="pantalla-consultar" class="mb-5 row gy-3">
+        <div id="consultar-form" class="col-12 col-md-6">
+             <h3 class="mb-5 fs-5">Consultar saldo</h3>
 
              <div>
                  <div class="form-group">
@@ -626,14 +669,18 @@ function mostrarPantallaConsultar() {
                      <input class="form-control" id="saldo-disponible" type="text" disabled />
                  </div>
              </div>
+
+            <div class="d-none d-md-block mt-3">Presione 
+              <span class="aceptar">Aceptar</span> Para regresar al menú principal.
+            </div> 
         </div>
 
-         <div id="consultar-saldo">
-             <img src="fotos/consultarSaldo.jpg">
-         </div>
-     </div>
 
-     <div >Presione <span class="aceptar">Aceptar</span> Para regresar al menú principal.</div>  
+
+        <div id="consultar-saldo" class="col-12 col-md-6">
+           <img src="fotos/consultarSaldo.jpg">
+        </div>
+      </div> 
 `;
 
     consultarSaldo();
@@ -710,7 +757,7 @@ function consultarSaldo() {
 function loading(mensaje, carita) {
   setTimeout(function () {
     mostrarValidacionDetalle(mensaje, carita);
-  }, 4000);
+  }, 8000);
 }
 
 //Pantalla Validacion
@@ -747,5 +794,5 @@ function mostrarValidacionDetalle(mensaje, carita) {
 
   setTimeout(function () {
     mostrarPantallaInicio();
-  }, 5000);
+  }, 8000);
 }
