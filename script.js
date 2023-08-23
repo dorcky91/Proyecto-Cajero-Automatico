@@ -150,27 +150,29 @@ function mostrarPantallaInicio() {
                 </a>
               </div>
             </div>
-
-
-
           </div>
         </div>
       </div>
     </div>
   `;
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    return false;
-  };
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      return false;
+    };
+  });
 
-  let btnCancelar = document.querySelector("#btn-cancelar");
-  btnCancelar.onclick = function () {
-    return false;
-  };
+  let btnCancelar = document.querySelectorAll("#btn-cancelar");
+  btnCancelar.forEach((btn) => {
+    btn.onclick = function () {
+      return false;
+    };
+  });
 
   let btnBorrar = document.querySelector("#btn-borrar");
   btnBorrar.onclick = function () {
+    console.log("clicked sin uso");
     return false;
   };
 }
@@ -203,6 +205,7 @@ function mostrarPantallaDepositar() {
 
   let btnBorrar = document.querySelector("#btn-borrar");
   btnBorrar.onclick = function () {
+    console.log("clicked depositar");
     borrarNumeroEnPantalla();
   };
 }
@@ -215,10 +218,13 @@ function validarNumeroCuenta() {
   let cantidad = document.querySelector("#cantidad-depositar");
   let otraCantidad = document.querySelector("#otra-cantidad");
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    return false;
-  };
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      console.log("lanmèd");
+      return false;
+    };
+  });
 
   if (numeroCuenta) {
     if (numeroCuenta.value.length === 10) {
@@ -226,22 +232,26 @@ function validarNumeroCuenta() {
         error.innerText = "";
 
         if (cantidad.value.length > 0) {
-          btnAceptar.onclick = function () {
-            let inputEscondido = document.querySelector("#input-escondido");
-            inputEscondido.value = numeroCuenta.value;
+          btnAceptar.forEach((btn) => {
+            btn.onclick = function () {
+              console.log("foutfout");
 
-            let inputCantidadEscondido = document.querySelector(
-              "#input-cantidad-escondido"
-            );
-            inputCantidadEscondido.value = cantidad.value;
+              let inputEscondido = document.querySelector("#input-escondido");
+              inputEscondido.value = numeroCuenta.value;
 
-            mostrarDepositarConfirmar();
-            let confirmarCuenta = document.querySelector(
-              "#numero-cuenta-confirmar"
-            );
-            confirmarCuenta.value = inputEscondido.value;
-            beneficiario(confirmarCuenta.value);
-          };
+              let inputCantidadEscondido = document.querySelector(
+                "#input-cantidad-escondido"
+              );
+              inputCantidadEscondido.value = cantidad.value;
+
+              mostrarDepositarConfirmar();
+              let confirmarCuenta = document.querySelector(
+                "#numero-cuenta-confirmar"
+              );
+              confirmarCuenta.value = inputEscondido.value;
+              beneficiario(confirmarCuenta.value);
+            };
+          });
         }
       }
     }
@@ -250,13 +260,16 @@ function validarNumeroCuenta() {
   if (otraCantidad) {
     error.innerText = "";
     if (otraCantidad.value.length > 0) {
-      btnAceptar.onclick = function () {
-        mostrarOtraCantidadRetirar(otraCantidad.value);
-      };
+      btnAceptar.forEach((btn) => {
+        btn.onclick = function () {
+          mostrarOtraCantidadRetirar(otraCantidad.value);
+        };
+      });
     }
 
     let btnBorrar = document.querySelector("#btn-borrar");
     btnBorrar.onclick = function () {
+      console.log("clicked retirar");
       borrarNumeroEnPantalla();
     };
   }
@@ -299,6 +312,8 @@ function inputDeposito(numero) {
 }
 
 function borrarNumeroEnPantalla() {
+  console.log("yoooo");
+
   let inputActivo = document.querySelector(".form-control.activo");
   let resultado = inputActivo.value.slice(0, -1);
   inputActivo.focus();
@@ -330,16 +345,20 @@ function mostrarDepositarFormulario() {
 
   mostrarDepositarImagenFormulario();
 
-  let btnCancelar = document.querySelector("#btn-cancelar");
-  btnCancelar.onclick = function () {
-    mostrarPantallaInicio();
-  };
+  let btnCancelar = document.querySelectorAll("#btn-cancelar");
+  btnCancelar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarPantallaInicio();
+    };
+  });
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    validarNumeroCuenta();
-    // return false;
-  };
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      validarNumeroCuenta();
+      // return false;
+    };
+  });
 }
 
 function mostrarDepositarImagenFormulario() {
@@ -359,41 +378,45 @@ function mostrarDepositarImagenConfirmar() {
   let inputEscondido = document.querySelector("#input-escondido");
   beneficiarioConfirmar.value = beneficiario(inputEscondido.value);
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    mostrarPantallaValidacion();
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarPantallaValidacion();
 
-    let mensaje;
-    let carita;
+      let mensaje;
+      let carita;
 
-    let depositoExitoso = actualizarSaldo("deposito");
-    if (depositoExitoso === true) {
-      mensaje =
-        "Su transacción ha sido realizado satisfactoriamente.<br/><br/> Regrese pronto.";
-      carita = "caritaFeliz.png";
-    } else {
-      mensaje =
-        "Su depósito ha sido rechazado: esta cuenta no puede exceder el limite ($990.00).<br/><br/> Intenta nuevamente.";
-      carita = "caritaTriste.png";
-    }
+      let depositoExitoso = actualizarSaldo("deposito");
+      if (depositoExitoso === true) {
+        mensaje =
+          "Su transacción ha sido realizado satisfactoriamente.<br/><br/> Regrese pronto.";
+        carita = "caritaFeliz.png";
+      } else {
+        mensaje =
+          "Su depósito ha sido rechazado: esta cuenta no puede exceder el limite ($990.00).<br/><br/> Intenta nuevamente.";
+        carita = "caritaTriste.png";
+      }
 
-    loading(mensaje, carita);
-  };
+      loading(mensaje, carita);
+    };
+  });
 
-  let btnCancelar = document.querySelector("#btn-cancelar");
-  btnCancelar.onclick = function () {
-    mostrarDepositarFormulario();
+  let btnCancelar = document.querySelectorAll("#btn-cancelar");
+  btnCancelar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarDepositarFormulario();
 
-    let numeroCuenta = document.querySelector("#numero-cuenta");
-    numeroCuenta.value = inputEscondido.value;
+      let numeroCuenta = document.querySelector("#numero-cuenta");
+      numeroCuenta.value = inputEscondido.value;
 
-    let inputCantidadEscondido = document.querySelector(
-      "#input-cantidad-escondido"
-    );
-    let cantidad = document.querySelector("#cantidad-depositar");
-    cantidad.value = inputCantidadEscondido.value;
-    validarNumeroCuenta();
-  };
+      let inputCantidadEscondido = document.querySelector(
+        "#input-cantidad-escondido"
+      );
+      let cantidad = document.querySelector("#cantidad-depositar");
+      cantidad.value = inputCantidadEscondido.value;
+      validarNumeroCuenta();
+    };
+  });
 }
 
 function mostrarDepositarConfirmar() {
@@ -497,21 +520,24 @@ function mostrarPantallaRetirar() {
       </div>
   `;
 
-  let retirarBtn = document.querySelectorAll(".retiroBtn");
-  retirarBtn.onclick = function () {
-    mostrarOtraCantidadDetalle();
-  };
+  // let retirarBtn = document.querySelector(".retiroBtn");
+  // retirarBtn.onclick = function () {
+  //   mostrarOtraCantidadDetalle();
+  // };
 
-  let btnCancelar = document.querySelector("#btn-cancelar");
-  btnCancelar.onclick = function () {
-    mostrarPantallaInicio();
-  };
+  let btnCancelar = document.querySelectorAll("#btn-cancelar");
+  btnCancelar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarPantallaInicio();
+    };
+  });
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    console.log("pantalla retirar");
-    return false;
-  };
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      return false;
+    };
+  });
 }
 
 function mostrarOtraCantidadRetirar(cantidad) {
@@ -543,14 +569,16 @@ function mostrarOtraCantidadRetirar(cantidad) {
   let nuevoEscondido = document.querySelector("#cantidad-deseado-retirar");
   nuevoEscondido.innerText = cantidad;
 
-  let btnCancelar = document.querySelector("#btn-cancelar");
-  btnCancelar.onclick = function () {
-    mostrarPantallaRetirar();
-  };
+  let btnCancelar = document.querySelectorAll("#btn-cancelar");
+  btnCancelar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarPantallaRetirar();
+    };
+  });
 
   let btnAceptar = document.querySelectorAll("#btn-aceptar");
-  btnAceptar.forEach((element) => {
-    element.onclick = function () {
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
       let inputCantidadEscondido = document.querySelector(
         "#input-cantidad-escondido"
       );
@@ -618,31 +646,35 @@ function mostrarOtraCantidadDetalle() {
         </div>
     `;
 
-  let btnCancelar = document.querySelector("#btn-cancelar");
-  btnCancelar.onclick = function () {
-    mostrarPantallaRetirar();
-  };
+  let btnCancelar = document.querySelectorAll("#btn-cancelar");
+  btnCancelar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarPantallaRetirar();
+    };
+  });
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    mostrarPantallaValidacion();
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarPantallaValidacion();
 
-    let mensaje;
-    let carita;
+      let mensaje;
+      let carita;
 
-    let retiroExitoso = actualizarSaldo("retiro");
-    if (retiroExitoso === true) {
-      mensaje =
-        "Su retiro ha sido realizado satisfactoriamente.<br/><br/> Regrese pronto.";
-      carita = "caritaFeliz.png";
-    } else {
-      mensaje =
-        "Su retiro ha sido rechazado: saldo insuficiente o cantidad incorrecta.<br/><br/> Intenta nuevamente.";
-      carita = "caritaTriste.png";
-    }
+      let retiroExitoso = actualizarSaldo("retiro");
+      if (retiroExitoso === true) {
+        mensaje =
+          "Su retiro ha sido realizado satisfactoriamente.<br/><br/> Regrese pronto.";
+        carita = "caritaFeliz.png";
+      } else {
+        mensaje =
+          "Su retiro ha sido rechazado: saldo insuficiente o cantidad incorrecta.<br/><br/> Intenta nuevamente.";
+        carita = "caritaTriste.png";
+      }
 
-    loading(mensaje, carita);
-  };
+      loading(mensaje, carita);
+    };
+  });
 }
 
 //Pantalla Consultar
@@ -684,12 +716,14 @@ function mostrarPantallaConsultar() {
 `;
 
     consultarSaldo();
-  }, 2000);
+  }, 5000);
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    mostrarPantallaInicio();
-  };
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      mostrarPantallaInicio();
+    };
+  });
 }
 
 function actualizarSaldo(tipoActualizacion) {
@@ -787,10 +821,12 @@ function mostrarValidacionDetalle(mensaje, carita) {
      <img src="fotos/${carita}" />
   `;
 
-  let btnAceptar = document.querySelector("#btn-aceptar");
-  btnAceptar.onclick = function () {
-    return false;
-  };
+  let btnAceptar = document.querySelectorAll("#btn-aceptar");
+  btnAceptar.forEach((btn) => {
+    btn.onclick = function () {
+      return false;
+    };
+  });
 
   setTimeout(function () {
     mostrarPantallaInicio();
